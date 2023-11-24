@@ -3,29 +3,42 @@ package Spiel;
 import Figur.Figur;
 
 public class Feld {
-    private char feldFarbe;
+    private char feldFarbe = 32;
     private Figur figur;
-    private int feldNr;
-    private static int laufendeNr;
-    private int zeile;
-    private int spalte;
+    private int feldNr = 0;
+    private int zeile = 0;
+    private int spalte = 0;
+    public static int laufendeNr;
+
 
     public Feld() {
         feldNr = laufendeNr++;
         zeile = feldNr / 8;
         spalte = feldNr % 8;
-        feldFarbe = (zeile + spalte) % 2 == 0 ? '\u2593' : '\u2591';
-        //System.out.println(feldNr + " " + zeile + "," + spalte + ", " + feldFarbe + " " + (zeile + spalte % 2 == 0));
+        feldFarbe = (char) ((zeile + spalte) % 2 == 0 ? 176 : 32);
+        //System.out.printf("%d: %d,%d %c\n", feldNr, zeile, spalte, feldFarbe);
     }
 
-    public Feld(String koordinaten) { // a1 dunkel a2 hell a3 dunkel
+    public Feld(String koordinaten) {
         feldNr = laufendeNr++;
         zeile = koordinaten.charAt(1) - '0';
-        spalte = koordinaten.charAt(0) - 'a';
-        feldFarbe = (zeile + spalte) % 2 == 0 ? '\u2593' : '\u2591';
+        spalte = koordinaten.charAt(0) - 'b';
+        feldFarbe = (char) ((zeile + spalte) % 2 == 0 ? 176 : 32);
     }
 
     public char getFeldFarbe() {
         return feldFarbe;
+    }
+
+    public int getFeldNr() {
+        return feldNr;
+    }
+
+    public int getZeile() {
+        return zeile;
+    }
+
+    public int getSpalte() {
+        return spalte;
     }
 }
