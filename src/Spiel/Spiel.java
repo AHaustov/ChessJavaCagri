@@ -3,6 +3,8 @@ package Spiel;
 import java.util.HashMap;
 import java.util.Map;
 
+import static KonsolenFarbe.KonsolenFarbe.*;
+
 public class Spiel {
     //Feld[][] spielFeld = new Feld[8][8]; // Spielbrett als Array
     Map<String, Feld> spielMap = new HashMap<>();
@@ -23,8 +25,10 @@ public class Spiel {
         for (char zeile = '8'; zeile >= '1' ; zeile--) {
             for (char spalte = 'a'; spalte <= 'h'; spalte++) {
                 String key = spalte + "" + zeile;
-                System.out.print(key + " ");
-                System.out.print(spielMap.get(key).getFeldFarbe() + " ");
+                String farbe = ((zeile + spalte) % 2 == 0 ? RED : BLUE);
+                System.out.print(farbe + key + " ");
+                System.out.print("" );
+                //System.out.print(spielMap.get(key).getFeldFarbe() + " ");
             }
             System.out.println();
         }

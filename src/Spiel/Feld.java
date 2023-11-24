@@ -5,9 +5,9 @@ import Figur.Figur;
 public class Feld {
     private char feldFarbe = 32;
     private Figur figur;
-    private int feldNr = 0;
-    private int zeile = 0;
-    private int spalte = 0;
+    private int feldNr;
+    private int zeile;
+    private int spalte;
     public static int laufendeNr;
 
 
